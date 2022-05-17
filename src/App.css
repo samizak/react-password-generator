@@ -1,0 +1,152 @@
+.App {
+  text-align: center;
+}
+
+.password-length-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5%;
+}
+
+.password-length-label {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.password-length-value {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.switch-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.switch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.settings {
+  border: 1px solid;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  font-size: 1.5em;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100px;
+  margin-bottom: 40px;
+  border-bottom: 5px solid #1c6ea4;
+}
+
+.ow {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.password-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-content: center;
+  align-items: center;
+  margin-right: 20px;
+  padding-left: 20px;
+  border-left: 1px solid #bbb;
+  outline-offset: 10px;
+}
+
+.copy-image {
+  cursor: pointer !important;
+}
+
+.copy-image .tooltip {
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  text-align: center;
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.copy-image:hover .tooltip {
+  visibility: visible;
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+
+.generate-image {
+  cursor: pointer !important;
+}
+
+.generate-image .tooltip {
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.generate-image:hover .tooltip {
+  visibility: visible;
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+#generated-password {
+  font-size: 1em;
+}
+
+.divider {
+  border-top: 1px solid #bbb;
+  width: 100%;
+}
+
+.no-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
