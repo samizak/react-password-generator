@@ -5,7 +5,7 @@ export default function CopyToClipboard({ generatedPassword }: any) {
   const [isActive, setActive] = useState(false);
 
   return (
-    <div className="copy-image no-select" onClick={(e) => console.log(e)}>
+    <div className="copy-image no-select">
       <ContentCopyIcon
         className="copy-image-icon"
         onClick={() => {
