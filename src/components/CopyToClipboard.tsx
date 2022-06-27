@@ -1,29 +1,46 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Tooltip } from "@mui/material";
 
 export default function CopyToClipboard({ generatedPassword }: any) {
   const [isActive, setActive] = useState(false);
 
+  const [copyText, setCopyText] = useState("Copy");
+
   return (
-    <div className="copy-image no-select">
-      <ContentCopyIcon
-        className="copy-image-icon"
-        onClick={() => {
-          navigator.clipboard.writeText(generatedPassword);
-          setActive(!isActive);
-
-          let tooltip = document.getElementById("copy-tooltip") as HTMLElement;
-          tooltip.innerHTML = "Copied!";
+    <>
+      <Tooltip
+        id="copy-tooltip"
+        title={copyText}
+        arrow
+        placement="bottom"
+        componentsProps={{
+          tooltip: {
+            sx: {
+              fontSize: "1.125rem",
+              bgcolor: "common.black",
+              "& .MuiTooltip-arrow": {
+                color: "common.black",
+              },
+            },
+          },
         }}
-        onMouseOut={() => {
-          let tooltip = document.getElementById("copy-tooltip") as HTMLElement;
-          tooltip.innerHTML = "Copy";
-        }}
-      />
-
-      <span id="copy-tooltip" className="tooltip no-select">
-        Copy
-      </span>
-    </div>
+        enterTouchDelay={0}
+      >
+        <ContentCopyIcon
+          className="copy-image-icon"
+          onClick={() => {
+            navigator.clipboard.writeText(generatedPassword);
+            setActive(!isActive);
+            setCopyText("Copied!");
+          }}
+          onMouseOut={() => {
+            setTimeout(() => {
+              setCopyText("Copy");
+            }, 300);
+          }}
+        />
+      </Tooltip>
+    </>
   );
 }

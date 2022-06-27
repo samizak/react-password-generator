@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
-import "./Styles/App.css";
 import Slider from "@mui/material/Slider";
 import Tooltip from "@mui/material/Tooltip";
 import Switch from "@mui/material/Switch";
-import "./Styles/Wave.css";
 import RefreshOutlinedIcon from "@mui/icons-material/RefreshOutlined";
-
 import { GeneratePassword } from "./utils/GeneratePassword";
 import CopyToClipboard from "./components/CopyToClipboard";
+import "./Styles/App.css";
 
 function ValueLabelComponent(props: any) {
   const { children, value } = props;
@@ -19,10 +17,10 @@ function ValueLabelComponent(props: any) {
   );
 }
 
-let _passwordLength: any = -1;
+let _passwordLength: number = -1;
 
 function App() {
-  const [passwordLength, setPasswordLength] = React.useState<any>(8);
+  const [passwordLength, setPasswordLength] = React.useState<number>(8);
   const [useLowerCase, setUseLowerCase] = React.useState(true);
   const [useUpperCase, setUseUpperCase] = React.useState(true);
   const [useNumbers, setUseNumbers] = React.useState(true);
@@ -52,7 +50,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <section className="bubble"> */}
       <h1 className="no-select">Password Generator</h1>
 
       <div className="container">
@@ -76,10 +73,25 @@ function App() {
           <div className="password-icons">
             <CopyToClipboard generatedPassword={generatedPassword} />
 
-            <div className="generate-image">
+            <Tooltip
+              title="Generate"
+              arrow
+              placement="bottom"
+              componentsProps={{
+                tooltip: {
+                  sx: {
+                    fontSize: "1.125rem",
+                    bgcolor: "common.black",
+                    "& .MuiTooltip-arrow": {
+                      color: "common.black",
+                    },
+                  },
+                },
+              }}
+              enterTouchDelay={0}
+            >
               <RefreshOutlinedIcon onClick={UpdatePassword} />
-              <span className="tooltip">Generate</span>
-            </div>
+            </Tooltip>
           </div>
         </div>
 
@@ -101,7 +113,7 @@ function App() {
               }}
               onChange={(e, v) => {
                 _passwordLength = passwordLength;
-                setPasswordLength(v);
+                setPasswordLength(v as number);
 
                 // Code below stops endless password generation
                 if (v !== _passwordLength) {
@@ -175,9 +187,6 @@ function App() {
           </div>
         </div>
       </div>
-
-      {/* <div className="curve"></div> */}
-      {/* </section> */}
     </div>
   );
 }
