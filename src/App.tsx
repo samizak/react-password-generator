@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import "./App.css";
-import Slider, { SliderThumb } from "@mui/material/Slider";
+import "./Styles/App.css";
+import Slider from "@mui/material/Slider";
 import Tooltip from "@mui/material/Tooltip";
 import Switch from "@mui/material/Switch";
-
+import "./Styles/Wave.css";
 import RefreshOutlinedIcon from "@mui/icons-material/RefreshOutlined";
 
 import { GeneratePassword } from "./utils/GeneratePassword";
@@ -52,9 +52,10 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container">
-        <h1 className="no-select">Password Generator</h1>
+      {/* <section className="bubble"> */}
+      <h1 className="no-select">Password Generator</h1>
 
+      <div className="container">
         <div className="input-container">
           <textarea
             className="ow"
@@ -67,6 +68,8 @@ function App() {
               width: "100%",
               overflow: "hidden",
               resize: "none",
+              outline: "none",
+              lineHeight: "2ch",
             }}
           />
 
@@ -172,6 +175,9 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* <div className="curve"></div> */}
+      {/* </section> */}
     </div>
   );
 }
