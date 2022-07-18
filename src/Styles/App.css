@@ -51,7 +51,12 @@ h3 {
 }
 
 .settings {
-  border: 1px solid;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 40%);
+}
+
+.settings h3 {
+  padding-top: 20px;
 }
 
 .container {
@@ -60,6 +65,7 @@ h3 {
   height: 100%;
   font-size: 1.5em;
   text-align: center;
+  font-weight: 600;
 }
 
 .input-container {
@@ -68,13 +74,14 @@ h3 {
   justify-content: space-between;
   height: 100px;
   margin-bottom: 40px;
-  border-bottom: 5px solid #1c6ea4;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 40%);
 }
 
 .password-icons {
   display: flex;
   flex-direction: row;
-  gap: 1em;
+  gap: 0.25em;
   align-content: center;
   align-items: center;
   margin-right: 20px;
@@ -83,17 +90,30 @@ h3 {
   outline-offset: 10px;
 }
 
+.password-icons svg {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+
 .generate-image {
   cursor: pointer !important;
 }
 
 #generated-password {
   font-size: 1em;
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: transparent;
+}
+
+.animate-generate {
+  animation: animateRotation 300ms infinite linear;
 }
 
 .divider {
   border-top: 1px solid #bbb;
-  width: 100%;
+  width: 99.9%;
 }
 
 .no-select {
@@ -101,4 +121,13 @@ h3 {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+@keyframes animateRotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
